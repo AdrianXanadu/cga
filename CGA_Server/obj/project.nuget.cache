@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "e6O10rvWxenmmo2Rm49M8q0FGEolxGSZ+TdKAYxXjVU82c7MRwswIpD9Ema09uRI8k5zdD7kNkAuagwn9h9ynQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\qehaja.a04\\Desktop\\cga\\CGA_Server\\CGA_Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\qehaja.a04\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
