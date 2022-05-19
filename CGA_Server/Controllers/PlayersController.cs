@@ -11,56 +11,55 @@ namespace CGA_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LocationsController : ControllerBase
+    public class PlayersController : ControllerBase
     {
         private readonly CGAContext _context;
 
-        public LocationsController()
+        public PlayersController()
         {
             _context = new CGAContext();
         }
 
-        // GET: api/Locations
+        // GET: api/Players
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocation()
+        public async Task<ActionResult<IEnumerable<Player>>> GetPlayer()
         {
-          if (_context.Location == null)
+          if (_context.Player == null)
           {
               return NotFound();
           }
-
-            return await _context.Location.Include(l => l.CidNavigation).Include(l => l.Iid).ToListAsync();
+            return await _context.Player.Include(p => p.Score).ToListAsync();
         }
 
-        // GET: api/Locations/5
+        // GET: api/Players/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocation(int id)
+        public async Task<ActionResult<Player>> GetPlayer(int id)
         {
-          if (_context.Location == null)
+          if (_context.Player == null)
           {
               return NotFound();
           }
-            var location = await _context.Location.FindAsync(id);
+            var player = await _context.Player.FindAsync(id);
 
-            if (location == null)
+            if (player == null)
             {
                 return NotFound();
             }
 
-            return location;
+            return player;
         }
 
-        // PUT: api/Locations/5
+        // PUT: api/Players/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLocation(int id, Location location)
+        public async Task<IActionResult> PutPlayer(int id, Player player)
         {
-            if (id != location.Lid)
+            if (id != player.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(location).State = EntityState.Modified;
+            _context.Entry(player).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +67,7 @@ namespace CGA_Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(id))
+                if (!PlayerExists(id))
                 {
                     return NotFound();
                 }
@@ -81,44 +80,44 @@ namespace CGA_Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Locations
+        // POST: api/Players
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Location>> PostLocation(Location location)
+        public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
-          if (_context.Location == null)
+          if (_context.Player == null)
           {
-              return Problem("Entity set 'CGAContext.Location'  is null.");
+              return Problem("Entity set 'CGAContext.Player'  is null.");
           }
-            _context.Location.Add(location);
+            _context.Player.Add(player);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLocation", new { id = location.Lid }, location);
+            return CreatedAtAction("GetPlayer", new { id = player.Id }, player);
         }
 
-        // DELETE: api/Locations/5
+        // DELETE: api/Players/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLocation(int id)
+        public async Task<IActionResult> DeletePlayer(int id)
         {
-            if (_context.Location == null)
+            if (_context.Player == null)
             {
                 return NotFound();
             }
-            var location = await _context.Location.FindAsync(id);
-            if (location == null)
+            var player = await _context.Player.FindAsync(id);
+            if (player == null)
             {
                 return NotFound();
             }
 
-            _context.Location.Remove(location);
+            _context.Player.Remove(player);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LocationExists(int id)
+        private bool PlayerExists(int id)
         {
-            return (_context.Location?.Any(e => e.Lid == id)).GetValueOrDefault();
+            return (_context.Player?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

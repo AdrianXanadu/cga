@@ -61,15 +61,12 @@ namespace CGA_Server.Models
 
             modelBuilder.Entity<Administrator>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id)
+                    .HasColumnName("id");
 
                 entity.Property(e => e.Creation)
                     .HasColumnName("creation")
                     .HasDefaultValueSql("CURRENT_DATE");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .HasDefaultValueSql("nextval('\"Account_id_seq\"'::regclass)");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
