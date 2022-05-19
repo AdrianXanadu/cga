@@ -9,7 +9,9 @@ namespace CGA_Server.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateOnly? Creation { get; set; }
+        public DateTime? Creation { get; set; }
         public string Password { get; set; }
+
+
     }
 }

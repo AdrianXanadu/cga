@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wCptRqgvQxfzf64LDASFkRBiZQ07UUUHWIryG+a1qsQ=",
+  "Source": "CGA_Server",
+  "BasePath": "_content/CGA_Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,87 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "CGAContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "CGA_Server",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "public.Country",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Location",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Account",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Location_has",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Question_Preset_Backup",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Image",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Question_Preset",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Player",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Administrator",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Score",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.Country_has",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.good_scores",
+         "ObjectType": 3
+      },
+      {
+         "Name": "public.scores_with_players",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "CGA",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

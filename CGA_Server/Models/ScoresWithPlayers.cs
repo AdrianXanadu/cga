@@ -9,7 +9,7 @@ namespace CGA_Server.Models
     {
         public int? Sid { get; set; }
         public int? Score { get; set; }
-        public DateOnly? Date { get; set; }
+        public DateTime? Date { get; set; }
         public string Name { get; set; }
     }
 }
