@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\qehaja.a04\Desktop\cga\CGA_Client\App.xaml
-11407045341
+3158115296
 
-5-1251291259
+7-96168219
 1941905061893
-MainWindow.xaml;
+MainWindow.xaml;Views\AdministratorView.xaml;Views\PlayerView.xaml;
 
-False
+True
 

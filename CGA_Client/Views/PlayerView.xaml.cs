@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CGA_Client
+namespace CGA_Client.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für PlayerView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PlayerView : Window
     {
-        public MainWindow()
+        public PlayerView()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -1,0 +1,121 @@
+﻿<Window x:Class="CGA_Client.Views.PlayerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CGA_Client.Views"
+        mc:Ignorable="d"
+        Title="PlayerView" Height="450" Width="800">
+    <TabControl Background="#FFE3D8F0">
+        <TabItem x:Name="tab_test" Header="Quiz ⌨️" Background="#FFE5E5E5">
+            <Grid Background="#FFF0EFB4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                    <RowDefinition  Height="0.5*"/>
+                    <RowDefinition  Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#FFF0EFB4">
+                    <TextBlock x:Name="textBlock_text"  TextWrapping="Wrap" FontSize="18"/>
+                </StackPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <Button x:Name="button_answer_1"></Button>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="1">
+                    <Button x:Name="button_answer_2"></Button>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.Column="0">
+                    <Button x:Name="button_answer_3"></Button>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.Column="1">
+                    <Button x:Name="button_answer_4"></Button>
+                </DockPanel>
+
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="tab_scores" Header="Scores 📊" Background="#FFE5E5E5">
+
+
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="0.9*"/>
+                    <RowDefinition  Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" LastChildFill="true">
+                    <ListBox x:Name="listBox_scores" Background="#FFCCF0D6" />
+                </DockPanel>
+                <DockPanel Grid.Row="1">
+                    <Button x:Name="button_export_stats">Export Scores</Button>
+                </DockPanel>
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="tab_settings" Header="Settings 📄">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Column="0">
+                    <Label Content="Farbschema: "></Label>
+                </DockPanel>
+
+                <DockPanel Grid.Column="1" Height="100px">
+                    <ComboBox x:Name="comboBox_colour_scheme"></ComboBox>
+                </DockPanel>
+
+                <DockPanel Grid.Column="0" Grid.Row="1">
+                    <Label Content="Export Scores Path: "></Label>
+                </DockPanel>
+
+                <DockPanel Grid.Column="1" Grid.Row="1" Height="100px">
+                    <TextBox x:Name="textBox_export_scores_path"></TextBox>
+                </DockPanel>
+
+
+
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="tab_account" Header="Account 👤">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Column="0">
+                    <TextBlock x:Name="textBlock_name"></TextBlock>
+                </DockPanel>
+
+                <DockPanel Grid.Column="1">
+                    <Button x:Name="button_change_account_information" Content="Change Account Information"/>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                    <Button x:Name="button_logout" Content="Log out"/>
+                </DockPanel>
+
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

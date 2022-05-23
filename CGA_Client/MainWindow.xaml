@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:CGA_Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
+        <Grid Background="#FFF0EFB4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+            <RowDefinition  Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="2" >
+            <TextBlock>Welcome to CGA!</TextBlock>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="0" >
+            <Button Content="Login"></Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" >
+            <Button Content="Register"></Button>
+        </DockPanel>
     </Grid>
 </Window>
