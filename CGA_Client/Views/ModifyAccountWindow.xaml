@@ -1,11 +1,11 @@
-﻿<Window x:Class="CGA_Client.Views.RegisterWindow"
+﻿<Window x:Class="CGA_Client.Views.ModifyAccountWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CGA_Client.Views"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="ModifyAccountWindow" Height="450" Width="800">
     <Grid Background="#FFF0EFB4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Column="0" Grid.Row="0">
-            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36">Username:</Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Username:</Label>
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="0">
             <TextBox x:Name="textBox_username" FontSize="20"></TextBox>
@@ -31,7 +31,7 @@
             <TextBox x:Name="textBox_password" FontSize="20"></TextBox>
         </DockPanel>
         <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <Button x:Name="button_register" Content="Register"></Button>
+            <Button x:Name="button_save" Content="Save"></Button>
         </DockPanel>
     </Grid>
 </Window>

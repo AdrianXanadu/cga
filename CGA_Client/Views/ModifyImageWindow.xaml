@@ -1,0 +1,93 @@
+﻿<Window x:Class="CGA_Client.Views.ModifyImageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CGA_Client.Views"
+        mc:Ignorable="d"
+        Title="ModifyImageWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.7*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <DockPanel Grid.Row="0" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">ID:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">Name:</Label>
+                </DockPanel>
+
+
+                <DockPanel Grid.Row="2" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">Image:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="0" Grid.Column="1">
+                    <TextBox x:Name="textBox_id"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="1">
+                    <TextBox x:Name="textBox_name"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.Column="1">
+                    <Button x:Name="button_select_image">Select Image</Button>
+                </DockPanel>
+
+                <DockPanel Grid.Row="3" Grid.ColumnSpan="2">
+                    <Image x:Name="image_image"></Image>
+                </DockPanel>
+
+            </Grid>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Grid.Column="0">
+                    <ListBox x:Name="listBox_locations"></ListBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <ListBox x:Name="listBox_countries"></ListBox>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+
+
+
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <Button x:Name="button_save" Content="Save"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <Button x:Name="button_delete" Content="Delete"/>
+        </DockPanel>
+
+
+    </Grid>
+</Window>

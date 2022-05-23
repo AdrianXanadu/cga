@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0" Grid.ColumnSpan="2" >
-            <TextBlock>Welcome to CGA!</TextBlock>
+            <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">Welcome to CGA!</TextBlock>
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0" >

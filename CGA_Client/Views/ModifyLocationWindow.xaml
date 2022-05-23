@@ -1,0 +1,105 @@
+﻿<Window x:Class="CGA_Client.Views.ModifyLocationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CGA_Client.Views"
+        mc:Ignorable="d"
+        Title="ModifyLocationWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <DockPanel Grid.Row="0" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">ID:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">Name:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">Name-Native:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="3" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">Coordinates:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="4" Grid.Column="0">
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center">isCapital:</Label>
+                </DockPanel>
+
+                <DockPanel Grid.Row="0" Grid.Column="1">
+                    <TextBox x:Name="textBox_id"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="1">
+                    <TextBox x:Name="textBox_name"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.Column="1">
+                    <TextBox x:Name="textBox_name_native"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="3" Grid.Column="1">
+                    <TextBox x:Name="textBox_coordinates"></TextBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="4" Grid.Column="1">
+                    <CheckBox x:Name="checkBox_isCapital" HorizontalAlignment="Center" VerticalAlignment="Center">isCapital</CheckBox>
+                </DockPanel>
+
+            </Grid>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Grid.Column="0">
+                    <ListBox x:Name="listBox_locations"></ListBox>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.Column="0">
+                    <ListBox x:Name="listBox_countries"></ListBox>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+       
+        
+
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <Button x:Name="button_save" Content="Save"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <Button x:Name="button_delete" Content="Delete"/>
+        </DockPanel>
+
+
+    </Grid>
+</Window>
