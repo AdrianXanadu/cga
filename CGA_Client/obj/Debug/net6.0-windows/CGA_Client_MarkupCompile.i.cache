@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\qehaja.a04\Desktop\cga\CGA_Client\App.xaml
-3158115296
+5935343481
 
-7-96168219
+91074647547
 1941905061893
-MainWindow.xaml;Views\AdministratorView.xaml;Views\PlayerView.xaml;
+MainWindow.xaml;Views\AdministratorView.xaml;Views\LoginWindow.xaml;Views\PlayerView.xaml;Views\RegisterWindow.xaml;
 
 True
 

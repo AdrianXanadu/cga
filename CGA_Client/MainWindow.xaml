@@ -23,11 +23,11 @@
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0" >
-            <Button Content="Login"></Button>
+            <Button x:Name="button_login" Content="Login"></Button>
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="1" >
-            <Button Content="Register"></Button>
+            <Button x:Name="button_register" Content="Register"></Button>
         </DockPanel>
     </Grid>
 </Window>
