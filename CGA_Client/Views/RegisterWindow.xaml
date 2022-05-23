@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:CGA_Client.Views"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFF0EFB4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Column="0" Grid.Row="0">
+            <Label>Username:</Label>
+        </DockPanel>
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <TextBox x:Name="textBox_username"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Column="0" Grid.Row="1">
+            <Label>Password:</Label>
+        </DockPanel>
+        <DockPanel Grid.Column="1" Grid.Row="1">
+            <TextBox x:Name="textBox_password"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <Button x:Name="button_register" Content="Register"></Button>
+        </DockPanel>
     </Grid>
 </Window>
