@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGA_Server.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace CGA_Client.Views
         public RegisterWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_register_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO GET ID 
+            int id = 10;
+            Player p = new Player(id, textBox_username.Text, textBox_password.Text);
         }
     }
 }

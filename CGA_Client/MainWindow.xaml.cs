@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CGA_Client.Views;
 
 namespace CGA_Client
 {
@@ -25,5 +26,11 @@ namespace CGA_Client
             InitializeComponent();
         }
 
+        private void button_register_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow rw = new RegisterWindow();
+            rw.Show();
+            this.Close();
+        }
     }
 }

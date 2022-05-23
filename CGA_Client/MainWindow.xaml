@@ -27,7 +27,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="1" >
-            <Button x:Name="button_register" Content="Register"></Button>
+            <Button x:Name="button_register" Content="Register" Click="button_register_Click"></Button>
         </DockPanel>
     </Grid>
 </Window>

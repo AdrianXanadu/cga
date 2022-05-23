@@ -31,7 +31,7 @@
             <TextBox x:Name="textBox_password" FontSize="20"></TextBox>
         </DockPanel>
         <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <Button x:Name="button_register" Content="Register"></Button>
+            <Button x:Name="button_register" Content="Register" Click="button_register_Click"></Button>
         </DockPanel>
     </Grid>
 </Window>
