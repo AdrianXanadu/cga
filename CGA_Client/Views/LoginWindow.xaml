@@ -16,6 +16,7 @@
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="0.2*"/>
+            <RowDefinition  Height="0.2*"/>
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Column="0" Grid.Row="0">
@@ -30,8 +31,11 @@
         <DockPanel Grid.Column="1" Grid.Row="1">
             <TextBox x:Name="textBox_password" FontSize="20"></TextBox>
         </DockPanel>
-        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
-            <Button x:Name="button_login" Content="Login"></Button>
+        <DockPanel Grid.Row="2">
+            <CheckBox x:Name="checkBox_admin" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">I am an Admin</CheckBox>
+        </DockPanel>
+        <DockPanel Grid.Row="3" Grid.ColumnSpan="2">
+            <Button x:Name="button_login" Content="Login" Click="button_login_Click"></Button>
         </DockPanel>
     </Grid>
 </Window>

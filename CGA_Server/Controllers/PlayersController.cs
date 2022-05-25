@@ -33,13 +33,30 @@ namespace CGA_Server.Controllers
 
         // GET: api/Players/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetPlayer(int id)
+        public async Task<ActionResult<Player>> GetPlayerById(int id)
         {
           if (_context.Player == null)
           {
               return NotFound();
           }
             var player = await _context.Player.FindAsync(id);
+
+            if (player == null)
+            {
+                return NotFound();
+            }
+
+            return player;
+        }
+
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<Player>> GetPlayerByName(string name)
+        {
+            if (_context.Player == null)
+            {
+                return NotFound();
+            }
+            var player = _context.Player.Where(p => p.Name == name).SingleOrDefault();
 
             if (player == null)
             {
@@ -83,7 +100,7 @@ namespace CGA_Server.Controllers
         // POST: api/Players
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Player>> PostPlayer(Player player)
+        public async Task<ActionResult<Player>> PostPlayer([FromBody] Player player)
         {
           if (_context.Player == null)
           {
@@ -113,6 +130,12 @@ namespace CGA_Server.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        
+        [HttpGet("max")]
+        public int GetHighestPlayerId()
+        {
+            return _context.Player.Max(x => x.Id);
         }
 
         private bool PlayerExists(int id)

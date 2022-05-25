@@ -1,17 +1,11 @@
-﻿using CGA_Server.Models;
+﻿using CGA_Client.Utils;
+using CGA_Server.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace CGA_Client.Views
 {
@@ -25,11 +19,36 @@ namespace CGA_Client.Views
             InitializeComponent();
         }
 
-        private void button_register_Click(object sender, RoutedEventArgs e)
+        private async Task<Player> CreatePlayerAsync(Player player)
         {
-            //TODO GET ID 
-            int id = 10;
-            Player p = new Player(id, textBox_username.Text, textBox_password.Text);
+            StringContent playerStringContent = new StringContent(JsonSerializer.Serialize<Player>(player, MainWindow.JSON_SERIALIZER_OPTIONS), Encoding.UTF8, "application/json");
+
+            var result = await MainWindow.HTTP_CLIENT.PostAsync("/api/players", playerStringContent);
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<Player>(resultString, MainWindow.JSON_SERIALIZER_OPTIONS);
+        }
+
+        private async void button_register_Click(object sender, RoutedEventArgs e)
+        {
+            var result = await MainWindow.HTTP_CLIENT.GetAsync("/api/players/max");
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            Player p = new Player(int.Parse(await result.Content.ReadAsStringAsync()) + 1, textBox_username.Text, Cryptology.SHA256Hash(textBox_password.Text), DateTime.UtcNow);
+
+            PlayerView pv = new PlayerView(await CreatePlayerAsync(p));
+            pv.Show();
+            this.Close();
         }
     }
 }

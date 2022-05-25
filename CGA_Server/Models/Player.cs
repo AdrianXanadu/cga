@@ -7,9 +7,13 @@ namespace CGA_Server.Models
 {
     public partial class Player
     {
-        public Player()
+        public Player(int id, string name, string password, DateTime? creation)
         {
             Score = new HashSet<Score>();
+            Id = id;
+            Name = name;
+            Creation = creation;
+            Password = password;
         }
 
         public int Id { get; set; }

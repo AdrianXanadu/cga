@@ -23,7 +23,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0" >
-            <Button x:Name="button_login" Content="Login"></Button>
+            <Button x:Name="button_login" Content="Login" Click="button_login_Click"></Button>
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="1" >

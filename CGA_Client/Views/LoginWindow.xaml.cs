@@ -1,7 +1,10 @@
-﻿using System;
+﻿using CGA_Client.Utils;
+using CGA_Server.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +25,65 @@ namespace CGA_Client.Views
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private async void button_login_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (checkBox_admin.IsChecked == false)
+            {
+                var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/players/name/{textBox_username.Text}");
+
+                if (!result.IsSuccessStatusCode)
+                {
+                    throw new Exception("User not found!");
+                }
+
+                Player player = JsonSerializer.Deserialize<Player>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+
+                if (player.Password == Cryptology.SHA256Hash(textBox_password.Text))
+                {
+                    PlayerView pv = new PlayerView(player);
+                    pv.Show();
+                    this.Close();
+                }
+                else
+                {
+                    if (!result.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Password not correct!");
+                    }
+                }
+
+            } else
+            {
+                var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/administrators/name/{textBox_username.Text}");
+
+                if (!result.IsSuccessStatusCode)
+                {
+                    throw new Exception("User not found!");
+                }
+
+                Administrator admin = JsonSerializer.Deserialize<Administrator>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+
+                if (admin.Password == Cryptology.SHA256Hash(textBox_password.Text))
+                {
+                    AdministratorView av = new AdministratorView(admin);
+                    av.Show();
+                    this.Close();
+                }
+                else
+                {
+                    if (!result.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Password not correct!");
+                    }
+                }
+            }
+            
+
+            
+           
         }
     }
 }

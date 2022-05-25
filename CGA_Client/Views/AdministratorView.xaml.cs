@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGA_Server.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace CGA_Client
     /// </summary>
     public partial class AdministratorView : Window
     {
-        public AdministratorView()
+        public AdministratorView(Administrator admin)
         {
             InitializeComponent();
         }

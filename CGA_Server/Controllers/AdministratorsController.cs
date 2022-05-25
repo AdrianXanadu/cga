@@ -49,6 +49,23 @@ namespace CGA_Server.Controllers
             return administrator;
         }
 
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<Administrator>> GetAdministratorByName(string name)
+        {
+            if (_context.Administrator == null)
+            {
+                return NotFound();
+            }
+            var admin = _context.Administrator.Where(a => a.Name == name).SingleOrDefault();
+
+            if (admin == null)
+            {
+                return NotFound();
+            }
+
+            return admin;
+        }
+
         // PUT: api/Administrators/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

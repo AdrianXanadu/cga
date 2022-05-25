@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +23,16 @@ namespace CGA_Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static HttpClient HTTP_CLIENT = new HttpClient()
+        {
+            BaseAddress = new Uri(@"https://localhost:7219")
+        };
+
+        public static JsonSerializerOptions JSON_SERIALIZER_OPTIONS = new JsonSerializerOptions()
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +42,13 @@ namespace CGA_Client
         {
             RegisterWindow rw = new RegisterWindow();
             rw.Show();
+            this.Close();
+        }
+
+        private void button_login_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
             this.Close();
         }
     }

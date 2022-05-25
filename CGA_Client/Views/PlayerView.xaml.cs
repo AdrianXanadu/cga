@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGA_Server.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace CGA_Client.Views
     /// </summary>
     public partial class PlayerView : Window
     {
-        public PlayerView()
+        public PlayerView(Player player)
         {
             InitializeComponent();
         }
