@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CGA_Client.Views"
         mc:Ignorable="d"
-        Title="PlayerView" Height="450" Width="800">
+        Title="PlayerView" 
+        Height="450" Width="800">
     <TabControl x:Name="tab_control_everything" Background="#FFE3D8F0">
         <TabItem x:Name="tab_test" Header="Quiz ⌨️" Background="#FFE5E5E5">
             <Grid Background="#FFF0EFB4">
@@ -56,7 +57,7 @@
                     <ListBox x:Name="listBox_scores" Background="#FFCCF0D6" />
                 </DockPanel>
                 <DockPanel Grid.Row="1">
-                    <Button x:Name="button_export_stats">Export Scores</Button>
+                    <Button x:Name="button_export_stats" Click="button_export_stats_Click">Export Scores</Button>
                 </DockPanel>
             </Grid>
         </TabItem>

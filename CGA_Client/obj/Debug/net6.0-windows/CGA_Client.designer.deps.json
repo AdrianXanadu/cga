@@ -2148,7 +2148,6 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Numerics.Vectors/4.5.0": {},
       "System.ObjectModel/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -2322,17 +2321,6 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.6.24705.1"
-          }
-        }
-      },
-      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
-        "dependencies": {
-          "System.Runtime": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime.dll": {
-            "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.6.24705.1"
           }
         }
@@ -2794,80 +2782,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {
             "assemblyVersion": "4.0.12.0",
             "fileVersion": "4.6.24705.1"
-          }
-        }
-      },
-      "Uno.Diagnostics.Eventing/2.0.1": {
-        "runtime": {
-          "lib/net5.0/Uno.Diagnostics.Eventing.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          }
-        }
-      },
-      "Uno.Foundation.Logging/4.3.6": {
-        "runtime": {
-          "lib/net6.0/Uno.Foundation.Logging.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          }
-        }
-      },
-      "Uno.SourceGenerationTasks/4.0.2": {},
-      "Uno.UI/4.3.6": {
-        "dependencies": {
-          "System.Collections.Immutable": "6.0.0",
-          "System.Memory": "4.5.4",
-          "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0",
-          "Uno.Diagnostics.Eventing": "2.0.1",
-          "Uno.Foundation.Logging": "4.3.6",
-          "Uno.SourceGenerationTasks": "4.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Uno.Foundation.Logging.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.Foundation.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.Composition.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.Dispatching.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.FluentTheme.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.FluentTheme.v1.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.FluentTheme.v2.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.Toolkit.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.Xaml.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
           }
         }
       }
@@ -3812,13 +3726,6 @@
       "path": "system.net.sockets/4.3.0",
       "hashPath": "system.net.sockets.4.3.0.nupkg.sha512"
     },
-    "System.Numerics.Vectors/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
-      "path": "system.numerics.vectors/4.5.0",
-      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
-    },
     "System.ObjectModel/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3944,13 +3851,6 @@
       "sha512": "sha512-cbz4YJMqRDR7oLeMRbdYv7mYzc++17lNhScCX0goO2XpGWdvAt60CGN+FHdePUEHCe/Jy9jUlvNAiNdM+7jsOw==",
       "path": "system.runtime.interopservices.runtimeinformation/4.3.0",
       "hashPath": "system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512"
-    },
-    "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-J4GUi3xZQLUBasNwZnjrffN8i5wpHrBtZoLG+OhRyGo/+YunMRWWtwoMDlUAIdmX0uRfpHIBDSV6zyr3yf00TA==",
-      "path": "system.runtime.interopservices.windowsruntime/4.3.0",
-      "hashPath": "system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512"
     },
     "System.Runtime.Numerics/4.3.0": {
       "type": "package",
@@ -4133,34 +4033,6 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
-    },
-    "Uno.Diagnostics.Eventing/2.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Hd03em+Bga+w+ljCtiyc+713PQDtCB0Qkw3sBggvXXdDB2URwEc3N4TnM3vFeXpmHHZGM7dN7D8qxfiGoEEHzw==",
-      "path": "uno.diagnostics.eventing/2.0.1",
-      "hashPath": "uno.diagnostics.eventing.2.0.1.nupkg.sha512"
-    },
-    "Uno.Foundation.Logging/4.3.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Maxpq1TYXXeOYGZohIlcTqlt8hIyZ9UYcvG36UK1Ck/DMEunL2AwEzDNQpBpIDyFfNKGLArxrl3BD2ol2YpOSQ==",
-      "path": "uno.foundation.logging/4.3.6",
-      "hashPath": "uno.foundation.logging.4.3.6.nupkg.sha512"
-    },
-    "Uno.SourceGenerationTasks/4.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-x5KP5Ojc80m6Z/wiUpw7+4NlXVxO4P2InkMt9VckRa437trg0eB+9CnMjahQex3pWYtfBmzopYs9ENEyWsOHRA==",
-      "path": "uno.sourcegenerationtasks/4.0.2",
-      "hashPath": "uno.sourcegenerationtasks.4.0.2.nupkg.sha512"
-    },
-    "Uno.UI/4.3.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pL/6yZWunxlwSqolPv1poNntDHuHWXgrSeUbLaMoyfPff8yvIWm0s3A+osg87w5obOnYFU9pYKfnJ87U0WL0Pg==",
-      "path": "uno.ui/4.3.6",
-      "hashPath": "uno.ui.4.3.6.nupkg.sha512"
     }
   }
 }

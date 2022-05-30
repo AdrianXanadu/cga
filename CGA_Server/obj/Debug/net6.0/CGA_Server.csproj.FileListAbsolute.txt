@@ -255,6 +255,8 @@ C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.AssemblyI
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.csproj.CoreCompileInputs.cache
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.RazorAssemblyInfo.cache
+C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.RazorAssemblyInfo.cs
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\scopedcss\bundle\CGA_Server.styles.css
@@ -264,5 +266,3 @@ C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\refint\CGA_Server.dl
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.pdb
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.genruntimeconfig.cache
 C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\ref\CGA_Server.dll
-C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.RazorAssemblyInfo.cache
-C:\Users\qehaja.a04\Desktop\cga\CGA_Server\obj\Debug\net6.0\CGA_Server.RazorAssemblyInfo.cs

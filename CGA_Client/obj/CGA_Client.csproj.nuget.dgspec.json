@@ -50,10 +50,6 @@
             "Ookii.Dialogs.Wpf": {
               "target": "Package",
               "version": "[5.0.1, )"
-            },
-            "Uno.UI": {
-              "target": "Package",
-              "version": "[4.3.6, )"
             }
           },
           "imports": [

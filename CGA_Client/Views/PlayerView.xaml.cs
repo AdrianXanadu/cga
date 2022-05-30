@@ -15,7 +15,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Windows.Storage.Pickers;
 
 namespace CGA_Client.Views
 {
@@ -72,7 +71,7 @@ namespace CGA_Client.Views
                     writer.WriteLine($"{Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)}");
                 }
 
-                button_export_scores_path.Content = $@"{Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)}\export.csv";
+                button_export_scores_path.Content = $@"{Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)}";
                 comboBox_colour_scheme.ItemsSource = new [] { ColourScheme.Light, ColourScheme.Dark };
             } else
             {
@@ -104,15 +103,16 @@ namespace CGA_Client.Views
 
         private async void button_export_scores_path_Click(object sender, RoutedEventArgs e)
         {
-            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            var dialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
             {
-                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
-                
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    button_export_scores_path.Content = dialog.SelectedPath;
-                }
+                button_export_scores_path.Content = @$"{dialog.SelectedPath}";
             }
+
+
         }
 
         private void button_save_settings_Click(object sender, RoutedEventArgs e)
@@ -147,6 +147,19 @@ namespace CGA_Client.Views
         private void SwitchToLightMode()
         {
             //MessageBox.Show("Switched to Light Mode");
+        }
+
+        private void button_export_stats_Click(object sender, RoutedEventArgs e)
+        {
+            using (var writer = new StreamWriter((string) @$"{button_export_scores_path.Content}\exports.txt"))
+            {
+                foreach (Score s in listBox_scores.Items)
+                {
+                    writer.WriteLine(s.ToString());
+                }
+            }
+
+            MessageBox.Show("Exported!");
         }
     }
 }
