@@ -1,4 +1,5 @@
-﻿using CGA_Server.Models;
+﻿using CGA_Client.Models;
+using CGA_Server.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,11 +36,6 @@ namespace CGA_Client.Views
         {
             InitializeComponent();
             Player = player;
-
-            LoadSettings();
-            GetScores();
-
-            textBlock_name.Text = player.Name;
         }
 
         private async Task GetScores()
@@ -160,6 +156,18 @@ namespace CGA_Client.Views
             }
 
             MessageBox.Show("Exported!");
+        }
+
+        private async void window_player_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadSettings();
+            GetScores();
+
+
+            textBlock_name.Text = Player.Name;
+
+            Quiz quiz = new Quiz(this);
+            await quiz.Start();
         }
     }
 }
