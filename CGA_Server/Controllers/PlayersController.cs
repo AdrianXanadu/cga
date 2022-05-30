@@ -20,6 +20,30 @@ namespace CGA_Server.Controllers
             _context = new CGAContext();
         }
 
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> PatchPlayer([FromBody] Player player, int id)
+        {
+            if (_context.Player == null)
+            {
+                return NotFound();
+            }
+
+            if (PlayerExists(id))
+            {
+                var newPlayer = await _context.Player.FindAsync(id);
+                
+                newPlayer.Name = player.Name;
+                newPlayer.Password = player.Password;
+
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            } else
+            {
+                return NotFound();
+            }
+        }
+
         // GET: api/Players
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayer()
