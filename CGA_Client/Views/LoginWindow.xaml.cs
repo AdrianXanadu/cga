@@ -36,7 +36,7 @@ namespace CGA_Client.Views
 
                 if (!result.IsSuccessStatusCode)
                 {
-                    throw new Exception("User not found!");
+                    MessageBox.Show("User not found!");
                 }
 
                 Player player = JsonSerializer.Deserialize<Player>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
@@ -49,10 +49,7 @@ namespace CGA_Client.Views
                 }
                 else
                 {
-                    if (!result.IsSuccessStatusCode)
-                    {
-                        throw new Exception("Password not correct!");
-                    }
+                    MessageBox.Show("Incorrect Password!");
                 }
 
             } else
@@ -74,10 +71,7 @@ namespace CGA_Client.Views
                 }
                 else
                 {
-                    if (!result.IsSuccessStatusCode)
-                    {
-                        throw new Exception("Password not correct!");
-                    }
+                    MessageBox.Show("Incorrect Password!");
                 }
             }
             

@@ -20,9 +20,21 @@ namespace CGA_Client
     /// </summary>
     public partial class AdministratorView : Window
     {
+        Administrator Administrator { get; set; }  
         public AdministratorView(Administrator admin)
         {
             InitializeComponent();
+
+            Administrator = admin;
+
+            textBlock_name.Text = admin.Name;
+        }
+
+        private void button_logout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mv = new MainWindow();
+            mv.Show();
+            this.Close();
         }
     }
 }

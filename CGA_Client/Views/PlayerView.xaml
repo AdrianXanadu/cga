@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CGA_Client.Views"
         mc:Ignorable="d"
         Title="PlayerView" Height="450" Width="800">
-    <TabControl Background="#FFE3D8F0">
+    <TabControl x:Name="tab_control_everything" Background="#FFE3D8F0">
         <TabItem x:Name="tab_test" Header="Quiz ⌨️" Background="#FFE5E5E5">
             <Grid Background="#FFF0EFB4">
                 <Grid.ColumnDefinitions>
@@ -69,6 +69,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0">
@@ -76,7 +77,7 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Height="100px">
-                    <ComboBox x:Name="comboBox_colour_scheme"></ComboBox>
+                    <ComboBox x:Name="comboBox_colour_scheme" SelectionChanged="comboBox_colour_scheme_SelectionChanged"></ComboBox>
                 </DockPanel>
 
                 <DockPanel Grid.Column="0" Grid.Row="1">
@@ -84,7 +85,11 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Grid.Row="1" Height="100px">
-                    <TextBox x:Name="textBox_export_scores_path"></TextBox>
+                    <Button x:Name="button_export_scores_path" Click="button_export_scores_path_Click"></Button>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+                    <Button x:Name="button_save_settings" Click="button_save_settings_Click">Save</Button>
                 </DockPanel>
 
 
@@ -107,11 +112,11 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1">
-                    <Button x:Name="button_change_account_information" Content="Change Account Information"/>
+                    <Button x:Name="button_change_account_information" Content="Change Account Information" Click="button_change_account_information_Click"/>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
-                    <Button x:Name="button_logout" Content="Log out"/>
+                    <Button x:Name="button_logout" Content="Log out" Click="button_logout_Click"/>
                 </DockPanel>
 
 

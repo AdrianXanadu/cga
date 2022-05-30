@@ -63,12 +63,8 @@
                     <TextBlock x:Name="textBlock_name"></TextBlock>
                 </DockPanel>
 
-                <DockPanel Grid.Column="1">
-                    <Button x:Name="button_change_account_information" Content="Change Account Information"/>
-                </DockPanel>
-
                 <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
-                    <Button x:Name="button_logout" Content="Log out"/>
+                    <Button x:Name="button_logout" Content="Log out" Click="button_logout_Click"/>
                 </DockPanel>
 
 
