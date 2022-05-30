@@ -1,9 +1,11 @@
 ﻿using CGA_Server.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,9 +38,23 @@ namespace CGA_Client.Views
             Player = player;
 
             LoadSettings();
+            GetScores();
 
             textBlock_name.Text = player.Name;
-            listBox_scores.ItemsSource = player.Score; 
+        }
+
+        private async Task GetScores()
+        {
+            var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/scores");
+
+            if (!result.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Couldn't load scores!");
+            }
+
+            listBox_scores.ItemsSource = JsonSerializer.Deserialize<List<Score>>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+
+            return;
         }
 
         public void LoadSettings()

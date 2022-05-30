@@ -14,5 +14,10 @@ namespace CGA_Server.Models
         public int Pid { get; set; }
 
         public virtual Player PidNavigation { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Date} - {PidNavigation.Name} - Score: {Score1}";
+        }
     }
 }

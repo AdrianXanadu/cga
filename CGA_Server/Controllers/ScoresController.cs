@@ -28,7 +28,8 @@ namespace CGA_Server.Controllers
           {
               return NotFound();
           }
-            return await _context.Score.ToListAsync();
+
+            return await _context.Score.Include(s => s.PidNavigation).ToListAsync();
         }
 
         // GET: api/Scores/5
