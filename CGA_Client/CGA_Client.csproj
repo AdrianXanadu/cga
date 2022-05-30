@@ -15,4 +15,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="Uno.UI" Version="4.3.6" />
+  </ItemGroup>
+
 </Project>

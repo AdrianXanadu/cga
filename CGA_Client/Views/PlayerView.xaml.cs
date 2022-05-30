@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Windows.Storage.Pickers;
 
 namespace CGA_Client.Views
 {
@@ -85,9 +86,17 @@ namespace CGA_Client.Views
             maw.Show();
         }
 
-        private void button_export_scores_path_Click(object sender, RoutedEventArgs e)
+        private async void button_export_scores_path_Click(object sender, RoutedEventArgs e)
         {
-
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    button_export_scores_path.Content = dialog.SelectedPath;
+                }
+            }
         }
 
         private void button_save_settings_Click(object sender, RoutedEventArgs e)

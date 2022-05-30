@@ -276,3 +276,17 @@ C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\runtimes\win
 C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\CGA_Server.dll
 C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\CGA_Server.pdb
 C:\Users\qehaja.a04\Desktop\cga\CGA_Client\obj\Debug\net6.0-windows\CGA_Client.csproj.CopyComplete
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.Diagnostics.Eventing.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.Foundation.Logging.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.Foundation.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.Composition.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.Dispatching.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.FluentTheme.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.FluentTheme.v1.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.FluentTheme.v2.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.Toolkit.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.UI.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.Xaml.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Uno.dll
+C:\Users\qehaja.a04\Desktop\cga\CGA_Client\bin\Debug\net6.0-windows\Ookii.Dialogs.Wpf.dll
