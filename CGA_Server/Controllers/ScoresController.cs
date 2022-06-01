@@ -86,7 +86,10 @@ namespace CGA_Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Score>> PostScore(Score score)
         {
-          if (_context.Score == null)
+            var pl = _context.Player.FirstOrDefault(p => p.Id == score.PidNavigation.Id);
+            score.PidNavigation = pl;
+
+            if (_context.Score == null)
           {
               return Problem("Entity set 'CGAContext.Score'  is null.");
           }
@@ -115,6 +118,13 @@ namespace CGA_Server.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("max")]
+        public int GetHighestScoreId()
+        {
+            return _context.Score.Max(s => s.Sid);
+        }
+
 
         private bool ScoreExists(int id)
         {

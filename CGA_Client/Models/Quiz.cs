@@ -3,6 +3,7 @@ using CGA_Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -12,15 +13,69 @@ namespace CGA_Client.Models
 {
     internal class Quiz
     {
-        private static PlayerView PlayerWindow;
+        private PlayerView PlayerWindow;
         private static int Rounds = 3;
+        private string CorrectAnswer;
+        public int Score { get; set; }
 
         public Quiz(PlayerView pv)
         {
             PlayerWindow = pv;
         }
 
-        public async Task Start()
+        private async Task<Score> CreateScoreAsync()
+        {
+            var result = await MainWindow.HTTP_CLIENT.GetAsync("/api/scores/max");
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            Score score = new Score()
+            {
+                Date = DateTime.UtcNow,
+                Pid = PlayerWindow.Player.Id,
+                PidNavigation = PlayerWindow.Player,
+                Score1 = Score,
+                Sid = int.Parse(await result.Content.ReadAsStringAsync()) + 1
+            };
+
+            StringContent scoreStringContent = new StringContent(JsonSerializer.Serialize<Score>(score, MainWindow.JSON_SERIALIZER_OPTIONS), Encoding.UTF8, "application/json");
+
+            result = await MainWindow.HTTP_CLIENT.PostAsync("/api/scores", scoreStringContent);
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<Score>(resultString, MainWindow.JSON_SERIALIZER_OPTIONS);
+        }
+
+        private async Task StopAsync()
+        {
+            MessageBox.Show($"Game Over! Score: {Score}");
+            PlayerWindow.Scores.Add(await CreateScoreAsync());
+            Score = 0;
+            await GenerateQuiz();
+        }
+
+        public async Task ButtonAnswer(string answer)
+        {
+            if (answer == CorrectAnswer)
+            {
+                Score++;
+                await GenerateQuiz();
+            } else
+            {
+                await StopAsync();
+            }
+        }
+
+        public async Task GenerateQuiz()
         {
             var qp = await GetRandomQuestionPreset();
 
@@ -30,6 +85,8 @@ namespace CGA_Client.Models
             {
                 var countries = await GetRandomCountries();
                 var correctCountry = countries[0];
+
+                CorrectAnswer = Convert.ToString(correctCountry.Population);
 
                 PlayerWindow.textBlock_text.Text = qp.Preset.Replace("${}", correctCountry.Name);
 
@@ -46,6 +103,8 @@ namespace CGA_Client.Models
                 var countries = await GetRandomCountries();
                 var correctCountry = countries[0];
 
+                CorrectAnswer = Convert.ToString(correctCountry.Size);
+
                 PlayerWindow.textBlock_text.Text = qp.Preset.Replace("${}", correctCountry.Name);
 
                 var rand = new Random();
@@ -60,6 +119,8 @@ namespace CGA_Client.Models
                 var countries = await GetRandomCountries();
                 var correctCountry = countries[0];
 
+                CorrectAnswer = Convert.ToString(correctCountry.NameNative);
+
                 PlayerWindow.textBlock_text.Text = qp.Preset.Replace("${}", correctCountry.Name);
 
                 var rand = new Random();
@@ -73,6 +134,8 @@ namespace CGA_Client.Models
             {
                 var countries = await GetRandomCountries();
                 var correctCountry = countries[0];
+
+                CorrectAnswer = Convert.ToString(correctCountry.Name);
 
                 PlayerWindow.textBlock_text.Text = qp.Preset.Replace("${}", correctCountry.NameNative);
 

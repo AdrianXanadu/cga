@@ -3,6 +3,7 @@ using CGA_Server.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,16 +30,18 @@ namespace CGA_Client.Views
             Light,
             Dark
         }
-        Player Player { get; set; }
-        
+        public Player Player { get; set; }
+        Quiz Quiz { get; set; }
+
+        public ObservableCollection<Score> Scores = new ObservableCollection<Score>();
 
         public PlayerView(Player player)
         {
             InitializeComponent();
             Player = player;
+            listBox_scores.ItemsSource = Scores;
         }
-
-        private async Task GetScores()
+        private async Task GetScoresAsync()
         {
             var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/scores");
 
@@ -47,7 +50,12 @@ namespace CGA_Client.Views
                 MessageBox.Show("Couldn't load scores!");
             }
 
-            listBox_scores.ItemsSource = JsonSerializer.Deserialize<List<Score>>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+            var scores = JsonSerializer.Deserialize<List<Score>>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+
+            foreach (Score s in scores)
+            {
+                Scores.Add(s);
+            }
 
             return;
         }
@@ -161,13 +169,23 @@ namespace CGA_Client.Views
         private async void window_player_Loaded(object sender, RoutedEventArgs e)
         {
             LoadSettings();
-            GetScores();
+            await GetScoresAsync();
 
 
             textBlock_name.Text = Player.Name;
 
-            Quiz quiz = new Quiz(this);
-            await quiz.Start();
+            Quiz = new Quiz(this);
+            await Quiz.GenerateQuiz();
+        }
+
+        private async void button_answer_Click(object sender, RoutedEventArgs e)
+        {
+            var button = ((Button)sender);
+
+            if (!(button.Content == null || Convert.ToString(button.Content) == ""))
+            {
+                await Quiz.ButtonAnswer(Convert.ToString(button.Content));
+            }
         }
     }
 }

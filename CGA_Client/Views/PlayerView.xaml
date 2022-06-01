@@ -26,19 +26,19 @@
                 </StackPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="0">
-                    <Button x:Name="button_answer_1"></Button>
+                    <Button x:Name="button_answer_1" Click="button_answer_Click"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="1">
-                    <Button x:Name="button_answer_2"></Button>
+                    <Button x:Name="button_answer_2" Click="button_answer_Click"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.Column="0">
-                    <Button x:Name="button_answer_3"></Button>
+                    <Button x:Name="button_answer_3" Click="button_answer_Click"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.Column="1">
-                    <Button x:Name="button_answer_4"></Button>
+                    <Button x:Name="button_answer_4" Click="button_answer_Click"></Button>
                 </DockPanel>
 
             </Grid>
