@@ -22,7 +22,7 @@
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Username:</Label>
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="0">
-            <TextBox x:Name="textBox_username" FontSize="20"></TextBox>
+            <TextBox Text="{Binding Path=Player.Name}" x:Name="textBox_username" FontSize="20"></TextBox>
         </DockPanel>
         <DockPanel Grid.Column="0" Grid.Row="1">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36">Password:</Label>

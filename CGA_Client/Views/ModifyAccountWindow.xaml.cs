@@ -23,14 +23,14 @@ namespace CGA_Client.Views
     /// </summary>
     public partial class ModifyAccountWindow : Window
     {
-        Player Player { get; set; }
+        public Player Player { get; set; }
         public ModifyAccountWindow(Player player)
         {
             InitializeComponent();
-
+            this.DataContext = this;
             Player = player;
 
-            textBox_username.Text = player.Name;
+            
         }
 
         private async void button_save_Click(object sender, RoutedEventArgs e)

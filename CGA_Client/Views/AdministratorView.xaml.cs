@@ -1,8 +1,11 @@
-﻿using CGA_Server.Models;
+﻿using CGA_Client.Views;
+using CGA_Server.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,14 +23,14 @@ namespace CGA_Client
     /// </summary>
     public partial class AdministratorView : Window
     {
-        Administrator Administrator { get; set; }  
+        public Administrator Administrator { get; set; }
+        public ObservableCollection<Score> Scores { get; set; } = new ObservableCollection<Score>();
         public AdministratorView(Administrator admin)
         {
             InitializeComponent();
-
+            this.DataContext = this;
             Administrator = admin;
-
-            textBlock_name.Text = admin.Name;
+            
         }
 
         private void button_logout_Click(object sender, RoutedEventArgs e)
@@ -35,6 +38,30 @@ namespace CGA_Client
             MainWindow mv = new MainWindow();
             mv.Show();
             this.Close();
+        }
+
+        private async Task GetScoresAsync()
+        {
+            var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/scores");
+
+            if (!result.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Couldn't load scores!");
+            }
+
+            var scores = JsonSerializer.Deserialize<List<Score>>(await result.Content.ReadAsStringAsync(), MainWindow.JSON_SERIALIZER_OPTIONS);
+
+            foreach (Score s in scores)
+            {
+                Scores.Add(s);
+            }
+
+            return;
+        }
+
+        private async void window_administrator_Loaded(object sender, RoutedEventArgs e)
+        {
+            await GetScoresAsync();
         }
     }
 }

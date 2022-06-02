@@ -54,7 +54,7 @@
                     <RowDefinition  Height="0.1*"/>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" LastChildFill="true">
-                    <ListBox x:Name="listBox_scores" Background="#FFCCF0D6" />
+                    <ListBox x:Name="listBox_scores" ItemsSource="{Binding Path=Scores}" Background="#FFCCF0D6" />
                 </DockPanel>
                 <DockPanel Grid.Row="1">
                     <Button x:Name="button_export_stats" Click="button_export_stats_Click">Export Scores</Button>
@@ -109,7 +109,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0">
-                    <TextBlock x:Name="textBlock_name"></TextBlock>
+                    <TextBlock Text="{Binding Path=Player.Name}" x:Name="textBlock_name"></TextBlock>
                 </DockPanel>
 
                 <DockPanel Grid.Column="1">

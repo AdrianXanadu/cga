@@ -33,13 +33,13 @@ namespace CGA_Client.Views
         public Player Player { get; set; }
         Quiz Quiz { get; set; }
 
-        public ObservableCollection<Score> Scores = new ObservableCollection<Score>();
+        public ObservableCollection<Score> Scores { get; set; } = new ObservableCollection<Score>();
 
         public PlayerView(Player player)
         {
             InitializeComponent();
+            this.DataContext = this;
             Player = player;
-            listBox_scores.ItemsSource = Scores;
         }
         private async Task GetScoresAsync()
         {
@@ -170,9 +170,6 @@ namespace CGA_Client.Views
         {
             LoadSettings();
             await GetScoresAsync();
-
-
-            textBlock_name.Text = Player.Name;
 
             Quiz = new Quiz(this);
             await Quiz.GenerateQuiz();

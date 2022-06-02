@@ -20,6 +20,31 @@ namespace CGA_Server.Controllers
             _context = new CGAContext();
         }
 
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> PatchAdmin([FromBody] Administrator administrator, int id)
+        {
+            if (_context.Player == null)
+            {
+                return NotFound();
+            }
+
+            if (AdministratorExists(id))
+            {
+                var newAdministrator = await _context.Administrator.FindAsync(id);
+
+                newAdministrator.Name = administrator.Name;
+                newAdministrator.Password = administrator.Password;
+
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         // GET: api/Administrators
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Administrator>>> GetAdministrator()
