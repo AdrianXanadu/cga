@@ -63,5 +63,30 @@ namespace CGA_Client
         {
             await GetScoresAsync();
         }
+
+        private void button_modify_country_Click(object sender, RoutedEventArgs e)
+        {
+            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+        }
+
+        private void button_modify_location_Click(object sender, RoutedEventArgs e)
+        {
+            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+        }
+
+        private void button_modify_presets_Click(object sender, RoutedEventArgs e)
+        {
+            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+        }
+        
+        private void extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets()
+        {
+            // why did i decide for my project to involve so much type work
+            // ok, i have all crud operations implemented (create, read, update (for the accounts) but not delete yet, i will need to do that
+
+            MessageBox.Show("This is not implemented yet. Please just not be an Verwalter");
+
+
+        }
     }
 }

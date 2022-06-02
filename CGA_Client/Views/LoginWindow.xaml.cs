@@ -29,6 +29,8 @@ namespace CGA_Client.Views
 
         private async void button_login_Click(object sender, RoutedEventArgs e)
         {
+            // Login Data Admin: User: Verwalter - Password: 1234
+            // Login Data Sample User: User: Eno - Password: 12
 
             if (checkBox_admin.IsChecked == false)
             {

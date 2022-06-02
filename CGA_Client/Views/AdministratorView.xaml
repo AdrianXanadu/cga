@@ -33,15 +33,15 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Row="0">
-                    <Button x:Name="button_modify_country" Content="Modify Country"></Button>
+                    <Button x:Name="button_modify_country" Content="Modify Country" Click="button_modify_country_Click"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1">
-                    <Button x:Name="button_modify_location" Content="Modify Location"></Button>
+                    <Button x:Name="button_modify_location" Content="Modify Location" Click="button_modify_location_Click"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2">
-                    <Button x:Name="button_modify_presets" Content="Modify Question Presets"></Button>
+                    <Button x:Name="button_modify_presets" Content="Modify Question Presets" Click="button_modify_presets_Click"></Button>
                 </DockPanel>
 
 
