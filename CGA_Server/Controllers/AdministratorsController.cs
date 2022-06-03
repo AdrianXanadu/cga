@@ -94,7 +94,7 @@ namespace CGA_Server.Controllers
         // PUT: api/Administrators/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAdministrator(int id, Administrator administrator)
+        public async Task<IActionResult> PutAdministrator(int id, [FromBody] Administrator administrator)
         {
             if (id != administrator.Id)
             {
@@ -125,7 +125,7 @@ namespace CGA_Server.Controllers
         // POST: api/Administrators
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Administrator>> PostAdministrator(Administrator administrator)
+        public async Task<ActionResult<Administrator>> PostAdministrator([FromBody] Administrator administrator)
         {
           if (_context.Administrator == null)
           {

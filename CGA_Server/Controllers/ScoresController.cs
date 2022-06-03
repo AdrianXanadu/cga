@@ -53,7 +53,7 @@ namespace CGA_Server.Controllers
         // PUT: api/Scores/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutScore(int id, Score score)
+        public async Task<IActionResult> PutScore(int id, [FromBody] Score score)
         {
             if (id != score.Sid)
             {
@@ -84,7 +84,7 @@ namespace CGA_Server.Controllers
         // POST: api/Scores
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Score>> PostScore(Score score)
+        public async Task<ActionResult<Score>> PostScore([FromBody] Score score)
         {
             var pl = _context.Player.FirstOrDefault(p => p.Id == score.PidNavigation.Id);
             score.PidNavigation = pl;

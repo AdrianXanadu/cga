@@ -52,7 +52,7 @@ namespace CGA_Server.Controllers
         // PUT: api/Countries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCountry(int id, Country country)
+        public async Task<IActionResult> PutCountry(int id, [FromBody] Country country)
         {
             if (id != country.Cid)
             {
@@ -83,7 +83,7 @@ namespace CGA_Server.Controllers
         // POST: api/Countries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Country>> PostCountry(Country country)
+        public async Task<ActionResult<Country>> PostCountry([FromBody] Country country)
         {
           if (_context.Country == null)
           {

@@ -52,7 +52,7 @@ namespace CGA_Server.Controllers
         // PUT: api/QuestionPresets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestionPreset(int id, QuestionPreset questionPreset)
+        public async Task<IActionResult> PutQuestionPreset(int id, [FromBody] QuestionPreset questionPreset)
         {
             if (id != questionPreset.Qid)
             {
@@ -83,7 +83,7 @@ namespace CGA_Server.Controllers
         // POST: api/QuestionPresets
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<QuestionPreset>> PostQuestionPreset(QuestionPreset questionPreset)
+        public async Task<ActionResult<QuestionPreset>> PostQuestionPreset([FromBody] QuestionPreset questionPreset)
         {
           if (_context.QuestionPreset == null)
           {
