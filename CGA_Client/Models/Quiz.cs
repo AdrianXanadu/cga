@@ -14,10 +14,8 @@ namespace CGA_Client.Models
     internal class Quiz
     {
         private PlayerView PlayerWindow;
-        private static int Rounds = 3;
-        private string CorrectAnswer;
+        private string? CorrectAnswer;
         public int Score { get; set; }
-
         public Quiz(PlayerView pv)
         {
             PlayerWindow = pv;
@@ -60,30 +58,31 @@ namespace CGA_Client.Models
             MessageBox.Show($"Game Over! Score: {Score}");
             PlayerWindow.Scores.Add(await CreateScoreAsync());
             Score = 0;
-            await GenerateQuiz();
+            await GenerateQuizAsync();
         }
 
-        public async Task ButtonAnswer(string answer)
+        public async Task ButtonAnswerAsync(string answer)
         {
             if (answer == CorrectAnswer)
             {
                 Score++;
-                await GenerateQuiz();
-            } else
+                await GenerateQuizAsync();
+            }
+            else
             {
                 await StopAsync();
             }
         }
 
-        public async Task GenerateQuiz()
+        public async Task GenerateQuizAsync()
         {
-            var qp = await GetRandomQuestionPreset();
+            var qp = await GetRandomQuestionPresetAsync();
 
             // DEBUG
 
             if (qp.Name == "Population")
             {
-                var countries = await GetRandomCountries();
+                var countries = await GetRandomCountriesAsync();
                 var correctCountry = countries[0];
 
                 CorrectAnswer = Convert.ToString(correctCountry.Population);
@@ -98,9 +97,10 @@ namespace CGA_Client.Models
                 PlayerWindow.button_answer_3.Content = countriesShuffled[2].Population;
                 PlayerWindow.button_answer_4.Content = countriesShuffled[3].Population;
 
-            } else if (qp.Name == "Area")
+            }
+            else if (qp.Name == "Area")
             {
-                var countries = await GetRandomCountries();
+                var countries = await GetRandomCountriesAsync();
                 var correctCountry = countries[0];
 
                 CorrectAnswer = Convert.ToString(correctCountry.Size);
@@ -114,9 +114,10 @@ namespace CGA_Client.Models
                 PlayerWindow.button_answer_2.Content = countriesShuffled[1].Size;
                 PlayerWindow.button_answer_3.Content = countriesShuffled[2].Size;
                 PlayerWindow.button_answer_4.Content = countriesShuffled[3].Size;
-            } else if (qp.Name == "Native-Name")
+            }
+            else if (qp.Name == "Native-Name")
             {
-                var countries = await GetRandomCountries();
+                var countries = await GetRandomCountriesAsync();
                 var correctCountry = countries[0];
 
                 CorrectAnswer = Convert.ToString(correctCountry.NameNative);
@@ -130,9 +131,10 @@ namespace CGA_Client.Models
                 PlayerWindow.button_answer_2.Content = countriesShuffled[1].NameNative;
                 PlayerWindow.button_answer_3.Content = countriesShuffled[2].NameNative;
                 PlayerWindow.button_answer_4.Content = countriesShuffled[3].NameNative;
-            } else if (qp.Name == "Name")
+            }
+            else if (qp.Name == "Name")
             {
-                var countries = await GetRandomCountries();
+                var countries = await GetRandomCountriesAsync();
                 var correctCountry = countries[0];
 
                 CorrectAnswer = Convert.ToString(correctCountry.Name);
@@ -146,16 +148,18 @@ namespace CGA_Client.Models
                 PlayerWindow.button_answer_2.Content = countriesShuffled[1].Name;
                 PlayerWindow.button_answer_3.Content = countriesShuffled[2].Name;
                 PlayerWindow.button_answer_4.Content = countriesShuffled[3].Name;
-            } else if (qp.Name == "Image")
+            }
+            else if (qp.Name == "Image")
             {
                 MessageBox.Show("Not implemented!");
-            } else
+            }
+            else
             {
                 throw new NotImplementedException();
             }
         }
 
-        private async Task<QuestionPreset> GetRandomQuestionPreset()
+        private async Task<QuestionPreset> GetRandomQuestionPresetAsync()
         {
             var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/questionpresets");
 
@@ -170,7 +174,7 @@ namespace CGA_Client.Models
             return presets[r.Next(presets.Count)];
         }
 
-        private async Task<List<Country>> GetRandomCountries()
+        private async Task<List<Country>> GetRandomCountriesAsync()
         {
             var result = await MainWindow.HTTP_CLIENT.GetAsync($"/api/countries");
 
