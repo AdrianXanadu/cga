@@ -74,7 +74,7 @@ namespace CGA_Server.Controllers
         }
 
         [HttpGet("name/{name}")]
-        public async Task<ActionResult<Player>> GetPlayerByName(string name)
+        public ActionResult<Player> GetPlayerByName(string name)
         {
             if (_context.Player == null)
             {

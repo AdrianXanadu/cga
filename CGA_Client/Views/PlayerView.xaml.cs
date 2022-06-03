@@ -105,7 +105,7 @@ namespace CGA_Client.Views
             maw.Show();
         }
 
-        private async void button_export_scores_path_Click(object sender, RoutedEventArgs e)
+        private void button_export_scores_path_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
 
@@ -172,7 +172,7 @@ namespace CGA_Client.Views
             await GetScoresAsync();
 
             Quiz = new Quiz(this);
-            await Quiz.GenerateQuiz();
+            await Quiz.GenerateQuizAsync();
         }
 
         private async void button_answer_Click(object sender, RoutedEventArgs e)
@@ -181,7 +181,7 @@ namespace CGA_Client.Views
 
             if (!(button.Content == null || Convert.ToString(button.Content) == ""))
             {
-                await Quiz.ButtonAnswer(Convert.ToString(button.Content));
+                await Quiz.ButtonAnswerAsync(Convert.ToString(button.Content));
             }
         }
     }

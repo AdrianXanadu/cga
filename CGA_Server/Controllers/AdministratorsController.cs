@@ -75,7 +75,7 @@ namespace CGA_Server.Controllers
         }
 
         [HttpGet("name/{name}")]
-        public async Task<ActionResult<Administrator>> GetAdministratorByName(string name)
+        public ActionResult<Administrator> GetAdministratorByName(string name)
         {
             if (_context.Administrator == null)
             {
