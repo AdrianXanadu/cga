@@ -68,7 +68,7 @@ namespace CGA_Client.Views
                 MessageBox.Show("Couldn't delete country, first delete locations referencing this country.");
             }
 
-            MessageBox.Show("Deleted!")
+            MessageBox.Show("Deleted!");
 
             return;
         }

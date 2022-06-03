@@ -142,7 +142,7 @@ namespace CGA_Client {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CGA_Client;V1.0.0.0;component/views/administratorview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CGA_Client;component/views/administratorview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AdministratorView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
