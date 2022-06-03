@@ -1,11 +1,11 @@
-﻿<Window x:Class="CGA_Client.Views.ModifyCountryWindow"
+﻿<Window x:Name="countryWindow" x:Class="CGA_Client.Views.ModifyCountryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CGA_Client.Views"
         mc:Ignorable="d"
-        Title="ModifyCountryWindow" Height="450" Width="800">
+        Title="ModifyCountryWindow" Height="450" Width="800" Loaded="countryWindow_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -61,27 +61,27 @@
                 </DockPanel>
 
                 <DockPanel Grid.Row="0" Grid.Column="1">
-                    <TextBox x:Name="textBox_id"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Cid}" x:Name="textBox_id"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="1">
-                    <TextBox x:Name="textBox_name"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Name}" x:Name="textBox_name"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.Column="1">
-                    <TextBox x:Name="textBox_name_native"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.NameNative}" x:Name="textBox_name_native"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="3" Grid.Column="1">
-                    <TextBox x:Name="textBox_population"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Population}" x:Name="textBox_population"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="4" Grid.Column="1">
-                    <TextBox x:Name="textBox_size"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Size}" x:Name="textBox_size"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="5" Grid.Column="1">
-                    <TextBox x:Name="textBox_iso3166_code"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Iso31661Alpha3Code}" x:Name="textBox_iso3166_code"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="6" Grid.Column="1">
@@ -92,7 +92,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="0" Grid.Column="1">
-            <ListBox x:Name="listBox_presets"></ListBox>
+            <ListBox ItemsSource="{Binding Path=Countries}" x:Name="listBox_countries" SelectionChanged="listBox_countries_SelectionChanged"></ListBox>
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0">
@@ -100,7 +100,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="1">
-            <Button x:Name="button_delete" Content="Delete"/>
+            <Button x:Name="button_delete" Content="Delete" Click="button_delete_Click"/>
         </DockPanel>
 
 

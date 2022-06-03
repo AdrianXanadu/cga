@@ -1,4 +1,5 @@
-﻿using CGA_Client.Views;
+﻿using CGA_Client.Utils;
+using CGA_Client.Views;
 using CGA_Server.Models;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace CGA_Client
             InitializeComponent();
             this.DataContext = this;
             Administrator = admin;
-            
+
         }
 
         private void button_logout_Click(object sender, RoutedEventArgs e)
@@ -66,27 +67,20 @@ namespace CGA_Client
 
         private void button_modify_country_Click(object sender, RoutedEventArgs e)
         {
-            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+            ModifyCountryWindow mcw = new ModifyCountryWindow();
+            mcw.Show();
         }
 
         private void button_modify_location_Click(object sender, RoutedEventArgs e)
         {
-            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+            Lazy.lazyFunction();
         }
 
         private void button_modify_presets_Click(object sender, RoutedEventArgs e)
         {
-            extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets();
+            Lazy.lazyFunction();
         }
-        
-        private void extremelyImportantFunctionNecessaryForThisProgramToWorkEvenThoughIamTooLazyToImplementTheLogicBehindTheWindowsUsedToModifyCountriesLocationsAndPresets()
-        {
-            // why did i decide for my project to involve so much type work
-            // ok, i have all crud operations implemented (create, read, update (for the accounts) but not delete yet, i will need to do that
-
-            MessageBox.Show("This is not implemented yet. Please just not be an Verwalter");
 
 
-        }
     }
 }

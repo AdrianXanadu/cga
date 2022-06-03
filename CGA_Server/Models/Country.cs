@@ -24,5 +24,10 @@ namespace CGA_Server.Models
         public virtual ICollection<Location> Location { get; set; }
 
         public virtual ICollection<Image> Iid { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Cid}: {Name} ({NameNative}) - {Iso31661Alpha3Code}, Population: {Population}, Size: {Size}";
+        }
     }
 }
