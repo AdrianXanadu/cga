@@ -49,37 +49,6 @@ namespace CGA_Server.Controllers
             return questionPreset;
         }
 
-        // PUT: api/QuestionPresets/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestionPreset(int id, [FromBody] QuestionPreset questionPreset)
-        {
-            if (id != questionPreset.Qid)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(questionPreset).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!QuestionPresetExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/QuestionPresets
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
