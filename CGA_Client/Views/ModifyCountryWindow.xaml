@@ -61,7 +61,7 @@
                 </DockPanel>
 
                 <DockPanel Grid.Row="0" Grid.Column="1">
-                    <TextBox Text="{Binding Path=SelectedCountry.Cid}" x:Name="textBox_id"></TextBox>
+                    <TextBox Text="{Binding Path=SelectedCountry.Cid}" x:Name="textBox_id" IsReadOnly="True"></TextBox>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="1">
@@ -96,7 +96,7 @@
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="0">
-            <Button x:Name="button_save" Content="Save"/>
+            <Button x:Name="button_save" Content="Save" Click="button_save_Click"/>
         </DockPanel>
 
         <DockPanel Grid.Row="1" Grid.Column="1">

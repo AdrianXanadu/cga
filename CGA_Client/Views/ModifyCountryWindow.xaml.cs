@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace CGA_Client.Views
     public partial class ModifyCountryWindow : Window
     {
         public Country SelectedCountry { get; set; } = new Country();
+        private int DefaultId = 0;
         public ObservableCollection<Country> Countries { get; set; } = new ObservableCollection<Country>();
         public ModifyCountryWindow()
         {
@@ -41,11 +43,29 @@ namespace CGA_Client.Views
             SelectedCountry.Iso31661Alpha3Code = selection.Iso31661Alpha3Code;
             SelectedCountry.Population = selection.Population;
             SelectedCountry.Cid = selection.Cid;
+            SelectedCountry.Iid = selection.Iid;
+            SelectedCountry.Location = selection.Location;
+
+           
         }
 
         private async void countryWindow_Loaded(object sender, RoutedEventArgs e)
         {
             await GetCountriesAsync();
+            DefaultId = await GetHighestCountryIdAsync() + 1;
+            textBox_id.Text = Convert.ToString(DefaultId);
+        }
+
+        private async Task<int> GetHighestCountryIdAsync()
+        {
+            var result = await MainWindow.HTTP_CLIENT.GetAsync("/api/countries/max");
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            return Convert.ToInt32(await result.Content.ReadAsStringAsync());
         }
 
         private async Task GetCountriesAsync()
@@ -84,6 +104,66 @@ namespace CGA_Client.Views
         private async void button_delete_Click(object sender, RoutedEventArgs e)
         {
             await DeleteCountryAsync(SelectedCountry.Cid);
+        }
+
+        private async void button_save_Click(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToInt32(textBox_id.Text) == DefaultId)
+            {
+                // add new country
+                Country country = new Country();
+                country.Cid = Convert.ToInt32(textBox_id.Text);
+                country.Name = textBox_name.Text;
+                country.NameNative = textBox_name_native.Text;
+                country.Population = Convert.ToInt32(textBox_population.Text);
+                country.Size = Convert.ToInt32(textBox_size.Text);
+                country.Flag = Convert.ToString(image_flag.Source);
+                country.Iso31661Alpha3Code = textBox_iso3166_code.Text;
+
+                await AddCountryAsync(country);
+            } else
+            {
+                // modify country
+                Country country = new Country();
+                country.Cid = Convert.ToInt32(textBox_id.Text);
+                country.Name = textBox_name.Text;
+                country.NameNative = textBox_name_native.Text;
+                country.Population = Convert.ToInt32(textBox_population.Text);
+                country.Size = Convert.ToInt32(textBox_size.Text);
+                country.Flag = Convert.ToString(image_flag.Source);
+                country.Iso31661Alpha3Code = textBox_iso3166_code.Text;
+                country.Iid = SelectedCountry.Iid;
+                country.Location = SelectedCountry.Location;
+
+                await ModifyCountryAsync(country);
+            }
+        }
+
+        private async Task ModifyCountryAsync(Country country)
+        {
+            StringContent countryStringContent = new StringContent(JsonSerializer.Serialize(country, MainWindow.JSON_SERIALIZER_OPTIONS), Encoding.UTF8, "application/json");
+
+            var result = await MainWindow.HTTP_CLIENT.PatchAsync($"/api/countries/{country.Cid}", countryStringContent);
+
+            this.Close();
+        }
+
+        private async Task<Country> AddCountryAsync(Country country)
+        {
+            StringContent countryStringContent = new StringContent(JsonSerializer.Serialize<Country>(country, MainWindow.JSON_SERIALIZER_OPTIONS), Encoding.UTF8, "application/json");
+
+            var result = await MainWindow.HTTP_CLIENT.PostAsync("/api/countries", countryStringContent);
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new Exception("ERROR");
+            }
+
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            this.Close();
+
+            return JsonSerializer.Deserialize<Country>(resultString, MainWindow.JSON_SERIALIZER_OPTIONS);
         }
     }
 }

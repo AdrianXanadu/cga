@@ -115,6 +115,12 @@ namespace CGA_Server.Controllers
             return NoContent();
         }
 
+        [HttpGet("max")]
+        public int GetHighestCountryId()
+        {
+            return _context.Country.Max(x => x.Cid);
+        }
+
         private bool CountryExists(int id)
         {
             return (_context.Country?.Any(e => e.Cid == id)).GetValueOrDefault();
