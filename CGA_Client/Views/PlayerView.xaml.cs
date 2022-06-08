@@ -33,26 +33,26 @@ namespace CGA_Client.Views
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private SolidColorBrush _Background = Brushes.White;
+        private SolidColorBrush _BackgroundProperty = Brushes.White;
 
-        public SolidColorBrush Background
+        public SolidColorBrush BackgroundProperty
         {
-            get { return _Background; }
+            get { return _BackgroundProperty; }
             set
             {
-                _Background = value;
+                _BackgroundProperty = value;
                 NotifyPropertyChanged();
             }
         }
 
-        private SolidColorBrush _Foreground = Brushes.Black;
+        private SolidColorBrush _ForegroundProperty = Brushes.Black;
 
-        public SolidColorBrush Foreground
+        public SolidColorBrush ForegroundProperty
         {
-            get { return _Foreground; }
+            get { return _ForegroundProperty; }
             set
             {
-                _Foreground = value;
+                _ForegroundProperty = value;
                 NotifyPropertyChanged();
             }
         }
@@ -177,14 +177,15 @@ namespace CGA_Client.Views
 
         private void SwitchToDarkMode()
         {
-            Background = Brushes.Black;
-            Foreground = Brushes.White;
+            BackgroundProperty = new SolidColorBrush(Colors.Black);
+            ForegroundProperty = new SolidColorBrush(Colors.White);
+
         }
 
         private void SwitchToLightMode()
         {
-            Background = Brushes.White;
-            Foreground = Brushes.Black;
+            BackgroundProperty = new SolidColorBrush(Colors.White);
+            ForegroundProperty = new SolidColorBrush(Colors.Black);
         }
 
         private void button_export_stats_Click(object sender, RoutedEventArgs e)

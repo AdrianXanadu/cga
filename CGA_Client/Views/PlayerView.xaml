@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PlayerView" 
         Height="450" Width="800" Loaded="window_player_Loaded">
-    <TabControl x:Name="tab_control_everything" Background="{Binding Path=Background}" >
+    <TabControl Background="{Binding Path=BackgroundProperty}" x:Name="tab_control_everything"  >
         <TabItem x:Name="tab_test" Header="Quiz ⌨️">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-                    <TextBlock Foreground="{Binding Path=Foreground}" x:Name="textBlock_text"  TextWrapping="Wrap" FontSize="18"/>
+                    <TextBlock Foreground="{Binding Path=ForegroundProperty}" x:Name="textBlock_text"  TextWrapping="Wrap" FontSize="18"/>
                 </StackPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="0">
@@ -54,7 +54,7 @@
                     <RowDefinition  Height="0.1*"/>
                 </Grid.RowDefinitions>
                 <DockPanel Grid.Row="0" HorizontalAlignment="Stretch" LastChildFill="true">
-                    <ListBox x:Name="listBox_scores" ItemsSource="{Binding Path=Scores}" />
+                    <ListBox Background ="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}" x:Name="listBox_scores" ItemsSource="{Binding Path=Scores}" />
                 </DockPanel>
                 <DockPanel Grid.Row="1">
                     <Button x:Name="button_export_stats" Click="button_export_stats_Click">Export Scores</Button>
@@ -74,7 +74,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0">
-                    <Label x:Name="label_scheme" Content="Farbschema: "></Label>
+                    <Label Foreground="{Binding Path=ForegroundProperty}" x:Name="label_scheme" Content="Farbschema: "></Label>
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Height="100px">
@@ -82,7 +82,7 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="0" Grid.Row="1">
-                    <Label x:Name="label_export_path" Content="Export Scores Path: "></Label>
+                    <Label Foreground="{Binding Path=ForegroundProperty}" x:Name="label_export_path" Content="Export Scores Path: "></Label>
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Grid.Row="1" Height="100px">
@@ -109,7 +109,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0">
-                    <TextBlock Text="{Binding Path=Player.Name}" x:Name="textBlock_name"></TextBlock>
+                    <TextBlock Foreground="{Binding Path=ForegroundProperty}" Text="{Binding Path=Player.Name}" x:Name="textBlock_name"></TextBlock>
                 </DockPanel>
 
                 <DockPanel Grid.Column="1">
