@@ -17,7 +17,7 @@ namespace CGA_Server.Controllers
 
         public QuestionPresetsController()
         {
-            _context = new CGAContext();
+            _context = Context._CGAContext;
         }
 
         // GET: api/QuestionPresets

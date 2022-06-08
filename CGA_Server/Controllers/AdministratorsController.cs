@@ -17,7 +17,7 @@ namespace CGA_Server.Controllers
 
         public AdministratorsController()
         {
-            _context = new CGAContext();
+            _context = Context._CGAContext;
         }
 
         [HttpPatch("{id}")]

@@ -2,24 +2,101 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace CGA_Server.Models
 {
-    public partial class Country
+    public partial class Country : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public Country()
         {
             Location = new HashSet<Location>();
             Iid = new HashSet<Image>();
         }
 
-        public int Cid { get; set; }
-        public string Name { get; set; }
-        public string NameNative { get; set; }
-        public int? Population { get; set; }
-        public int? Size { get; set; }
-        public string Iso31661Alpha3Code { get; set; }
-        public string Flag { get; set; }
+        private int _Cid;
+
+        public int Cid
+        {
+            get { return _Cid; }
+            set { 
+                _Cid = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string _Name;
+
+        public string Name
+        {
+            get { return _Name; }
+            set { 
+                _Name = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string _NameNative;
+
+        public string NameNative
+        {
+            get { return _NameNative; }
+            set { 
+                _NameNative = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int? _Population;
+
+        public int? Population
+        {
+            get { return _Population; }
+            set { 
+                _Population = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _Size;
+
+        public int Size
+        {
+            get { return _Size; }
+            set { 
+                _Size = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string _Iso31661Alpha3Code;
+
+        public string Iso31661Alpha3Code
+        {
+            get { return _Iso31661Alpha3Code; }
+            set { 
+                _Iso31661Alpha3Code = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string _Flag;
+
+        public string Flag
+        {
+            get { return _Flag; }
+            set { 
+                _Flag = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
         public virtual ICollection<Location> Location { get; set; }
 

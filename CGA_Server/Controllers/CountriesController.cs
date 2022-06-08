@@ -17,7 +17,7 @@ namespace CGA_Server.Controllers
 
         public CountriesController()
         {
-            _context = new CGAContext();
+            _context = Context._CGAContext;
         }
 
         // GET: api/Countries

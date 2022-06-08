@@ -22,7 +22,7 @@ namespace CGA_Client.Views
     /// </summary>
     public partial class ModifyCountryWindow : Window
     {
-        public Country SelectedCountry { get; set; }
+        public Country SelectedCountry { get; set; } = new Country();
         public ObservableCollection<Country> Countries { get; set; } = new ObservableCollection<Country>();
         public ModifyCountryWindow()
         {
@@ -32,7 +32,15 @@ namespace CGA_Client.Views
 
         private void listBox_countries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedCountry = listBox_countries.SelectedItem as Country;
+            Country selection = listBox_countries.SelectedItem as Country;
+
+            SelectedCountry.Size = selection.Size;
+            SelectedCountry.Name = selection.Name;
+            SelectedCountry.NameNative = selection.NameNative;
+            SelectedCountry.Flag = selection.Flag;
+            SelectedCountry.Iso31661Alpha3Code = selection.Iso31661Alpha3Code;
+            SelectedCountry.Population = selection.Population;
+            SelectedCountry.Cid = selection.Cid;
         }
 
         private async void countryWindow_Loaded(object sender, RoutedEventArgs e)
