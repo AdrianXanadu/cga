@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace CGA_Client.Models
 {
-    internal class Quiz
+    public class Quiz
     {
         private PlayerView PlayerWindow;
         private string? CorrectAnswer;
