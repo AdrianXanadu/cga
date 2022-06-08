@@ -9,6 +9,7 @@ namespace CGA_Client.Utils
 {
     internal class Cryptology
     {
+        // no salt and pepper ;((
         public static string SHA256Hash(string value)
         {
             StringBuilder Sb = new StringBuilder();

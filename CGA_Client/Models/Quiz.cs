@@ -1,4 +1,5 @@
-﻿using CGA_Client.Views;
+﻿using CGA_Client.Utils;
+using CGA_Client.Views;
 using CGA_Server.Models;
 using System;
 using System.Collections.Generic;
@@ -78,8 +79,6 @@ namespace CGA_Client.Models
         {
             var qp = await GetRandomQuestionPresetAsync();
 
-            // DEBUG
-
             if (qp.Name == "Population")
             {
                 var countries = await GetRandomCountriesAsync();
@@ -151,7 +150,7 @@ namespace CGA_Client.Models
             }
             else if (qp.Name == "Image")
             {
-                MessageBox.Show("Not implemented!");
+                Lazy.lazyFunction();
             }
             else
             {
