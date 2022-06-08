@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CGA_Client.Utils
 {
-    internal class Cryptology
+    public class Cryptology
     {
         // no salt and pepper ;((
         public static string SHA256Hash(string value)

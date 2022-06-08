@@ -22,6 +22,11 @@ namespace CGA_Client.Models
             PlayerWindow = pv;
         }
 
+        public Quiz()
+        {
+
+        }
+
         private async Task<Score> CreateScoreAsync()
         {
             var result = await MainWindow.HTTP_CLIENT.GetAsync("/api/scores/max");
