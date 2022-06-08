@@ -4,8 +4,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -23,13 +25,43 @@ namespace CGA_Client.Views
     /// <summary>
     /// Interaktionslogik für PlayerView.xaml
     /// </summary>
-    public partial class PlayerView : Window
+    
+    public partial class PlayerView : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private SolidColorBrush _Background = Brushes.White;
+
+        public SolidColorBrush Background
+        {
+            get { return _Background; }
+            set
+            {
+                _Background = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private SolidColorBrush _Foreground = Brushes.Black;
+
+        public SolidColorBrush Foreground
+        {
+            get { return _Foreground; }
+            set
+            {
+                _Foreground = value;
+                NotifyPropertyChanged();
+            }
+        }
         enum ColourScheme
         {
             Light,
             Dark
         }
+
         public Player Player { get; set; }
         Quiz Quiz { get; set; }
 
@@ -145,12 +177,14 @@ namespace CGA_Client.Views
 
         private void SwitchToDarkMode()
         {
-            //MessageBox.Show("Switched to Dark Mode");
+            Background = Brushes.Black;
+            Foreground = Brushes.White;
         }
 
         private void SwitchToLightMode()
         {
-            //MessageBox.Show("Switched to Light Mode");
+            Background = Brushes.White;
+            Foreground = Brushes.Black;
         }
 
         private void button_export_stats_Click(object sender, RoutedEventArgs e)
