@@ -26,19 +26,19 @@
                 </StackPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="0">
-                    <Button x:Name="button_answer_1" Click="button_answer_Click"></Button>
+                    <Button x:Name="button_answer_1" Click="button_answer_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.Column="1">
-                    <Button x:Name="button_answer_2" Click="button_answer_Click"></Button>
+                    <Button x:Name="button_answer_2" Click="button_answer_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.Column="0">
-                    <Button x:Name="button_answer_3" Click="button_answer_Click"></Button>
+                    <Button x:Name="button_answer_3" Click="button_answer_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.Column="1">
-                    <Button x:Name="button_answer_4" Click="button_answer_Click"></Button>
+                    <Button x:Name="button_answer_4" Click="button_answer_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}"></Button>
                 </DockPanel>
 
             </Grid>
@@ -57,7 +57,7 @@
                     <ListBox Background ="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}" x:Name="listBox_scores" ItemsSource="{Binding Path=Scores}" />
                 </DockPanel>
                 <DockPanel Grid.Row="1">
-                    <Button x:Name="button_export_stats" Click="button_export_stats_Click">Export Scores</Button>
+                    <Button Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}" x:Name="button_export_stats" Click="button_export_stats_Click">Export Scores</Button>
                 </DockPanel>
             </Grid>
         </TabItem>
@@ -78,7 +78,7 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Height="100px">
-                    <ComboBox x:Name="comboBox_colour_scheme" SelectionChanged="comboBox_colour_scheme_SelectionChanged"></ComboBox>
+                    <ComboBox x:Name="comboBox_colour_scheme" SelectionChanged="comboBox_colour_scheme_SelectionChanged" Background="{x:Null}" />
                 </DockPanel>
 
                 <DockPanel Grid.Column="0" Grid.Row="1">
@@ -86,11 +86,11 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1" Grid.Row="1" Height="100px">
-                    <Button x:Name="button_export_scores_path" Click="button_export_scores_path_Click"></Button>
+                    <Button x:Name="button_export_scores_path" Click="button_export_scores_path_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}"></Button>
                 </DockPanel>
 
                 <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
-                    <Button x:Name="button_save_settings" Click="button_save_settings_Click">Save</Button>
+                    <Button x:Name="button_save_settings" Click="button_save_settings_Click" Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}">Save</Button>
                 </DockPanel>
 
 
@@ -113,11 +113,11 @@
                 </DockPanel>
 
                 <DockPanel Grid.Column="1">
-                    <Button x:Name="button_change_account_information" Content="Change Account Information" Click="button_change_account_information_Click"/>
+                    <Button Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}" x:Name="button_change_account_information" Content="Change Account Information" Click="button_change_account_information_Click"/>
                 </DockPanel>
 
                 <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
-                    <Button x:Name="button_logout" Content="Log out" Click="button_logout_Click"/>
+                    <Button Background="{Binding Path=BackgroundProperty}" Foreground="{Binding Path=ForegroundProperty}" x:Name="button_logout" Content="Log out" Click="button_logout_Click"/>
                 </DockPanel>
 
 
